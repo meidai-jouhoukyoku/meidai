@@ -1530,9 +1530,34 @@
       }
     });
   });
-
-  // ─── FORM SUBMIT ───
-   
+     // ─── FORM SUBMIT ───
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = new URLSearchParams();
+    data.append('entry.501963501', document.getElementById('company').value);
+    data.append('entry.1521222689', document.getElementById('name').value);
+    data.append('entry.2058390576', document.getElementById('email').value);
+    data.append('entry.1821106198', document.getElementById('tel').value);
+    data.append('entry.1188854177', document.getElementById('message').value);
+    const planLabels = {
+      light: 'ライトプラン（8万円／1か月）',
+      standard: 'スタンダードプラン（15万円／1か月）',
+      premium: 'プレミアムプラン（25万円／1か月）',
+      single: '単品メニュー',
+      job: '求人・バイト募集掲載',
+      consult: 'まずは気軽に相談'
+    };
+    document.querySelectorAll('input[name="plan"]:checked').forEach(cb => {
+      data.append('entry.922518082', planLabels[cb.value] || cb.value);
+    });
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLScyNd-Rv-W0wfze5dHDTPAQrrbRyw8WXWM9VSAHVuhLx7B7qg/formResponse', {
+      method: 'POST', body: data, mode: 'no-cors'
+    });
+    const success = document.getElementById('form-success');
+    success.classList.add('show');
+    this.querySelectorAll('input, textarea, button').forEach(el => el.disabled = true);
+    success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
 </script>
 </body>
 </html>
