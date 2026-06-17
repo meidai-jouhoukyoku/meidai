@@ -1562,15 +1562,15 @@
     e.preventDefault();
     const tempForm = document.createElement('form');
     tempForm.method = 'POST';
-    tempForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLScyNd-Rv-W0wfze5dHDTPAQrrbRyw8WXWM9VSAHVuhLx7B7qg/formResponse';
+    tempForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLScvDB78vmE4DaabkqQFxbUcCkjWY23CVziexwPVkIKMPe5lzA/formResponse';
     tempForm.target = 'google_form_iframe';
     tempForm.style.display = 'none';
     const fields = {
-      'entry.501963501': document.getElementById('company').value,
-      'entry.1521222689': document.getElementById('name').value,
-      'entry.2058390576': document.getElementById('email').value,
-      'entry.1821106198': document.getElementById('tel').value,
-      'entry.1188854177': document.getElementById('message').value
+      'entry.441263762': document.getElementById('company').value,
+      'entry.441256924': document.getElementById('name').value,
+      'entry.123155687': document.getElementById('email').value,
+      'entry.1265933143': document.getElementById('tel').value,
+      'entry.836221366': document.getElementById('message').value
     };
     Object.entries(fields).forEach(([name, value]) => {
       const input = document.createElement('input');
@@ -1590,7 +1590,7 @@
     document.querySelectorAll('input[name="plan"]:checked').forEach(cb => {
       const input = document.createElement('input');
       input.type = 'hidden';
-      input.name = 'entry.922518082';
+      input.name = 'entry.1164929482';
       input.value = planLabels[cb.value] || cb.value;
       tempForm.appendChild(input);
     });
